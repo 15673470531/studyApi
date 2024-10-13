@@ -1,7 +1,10 @@
 FROM php:8.1-fpm
 
-RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+# 检查文件是否存在且为空
+#RUN [ -s /etc/apt/sources.list ] || touch /etc/apt/sources.list
+
+#RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
+ #   sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 
 # 安装所需的依赖包和扩展
 RUN apt-get update && apt-get install -y \
