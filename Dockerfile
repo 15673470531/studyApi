@@ -34,7 +34,7 @@ RUN apt-get update && apt-get install -y \
         vim \
         bash \
         iputils-ping \
-    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd php-openssl
+    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # 安装 Composer
 #RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
