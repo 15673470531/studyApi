@@ -3,8 +3,14 @@ FROM php:8.1-fpm
 # 检查文件是否存在且为空
 #RUN [ -s /etc/apt/sources.list ] || touch /etc/apt/sources.list
 
-#RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
- #   sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
+# 创建 /etc/apt 目录
+RUN mkdir -p /etc/apt
+
+# 创建空的 sources.list 文件
+RUN touch /etc/apt/sources.list
+
+RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && \
+    sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 
 # 安装所需的依赖包和扩展
 RUN apt-get update && apt-get install -y \
