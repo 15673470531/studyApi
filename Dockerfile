@@ -27,7 +27,7 @@ RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.li
 
 
 # 安装所需的依赖包和扩展
-RUN apt-get apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y \
+RUN apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y \
         git \
         curl \
         libpng-dev \
