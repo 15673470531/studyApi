@@ -37,6 +37,7 @@ class VersionService extends BaseService {
             $ok       = false;
             $msg      = ApiException::getErrorDesc($e);
             $errorMsg = ApiException::getRealErrorMsg($e);
+            varDumpExit($errorMsg);
         }
         log_i(__METHOD__, sprintf('params:%s, ok:%s, msg:%s, data:%s, errorMsg:%s', _j(func_get_args()), $ok, $msg, _j($data), $errorMsg ?? ''));
         return [$ok, $msg, $data];
