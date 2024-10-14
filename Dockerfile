@@ -27,17 +27,23 @@ RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.li
 
 
 # 安装所需的依赖包和扩展
+#RUN apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y \
+#        git \
+#        curl \
+#        libpng-dev \
+#        libonig-dev \
+#        libxml2-dev \
+#        zip \
+#        unzip \
+#        vim \
+#        bash \
+#        iputils-ping \
+#    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
+
 RUN apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y \
         git \
         curl \
-        libpng-dev \
-        libonig-dev \
-        libxml2-dev \
-        zip \
-        unzip \
-        vim \
         bash \
-        iputils-ping \
     && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # 清理缓存
