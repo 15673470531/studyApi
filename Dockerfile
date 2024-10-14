@@ -40,11 +40,7 @@ RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.li
 #        iputils-ping \
 #    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 
-RUN apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y \
-        git \
-        curl \
-        bash \
-    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
+RUN apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # 清理缓存
 RUN rm -rf /var/lib/apt/lists/*
