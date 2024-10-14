@@ -12,9 +12,12 @@ RUN mkdir -p /etc/apt
 # 创建空的 sources.list 文件
 RUN touch /etc/apt/sources.list
 
-RUN sed -i "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse" /etc/apt/sources.list
-RUN set -i "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse" /etc/apt/sources.list
-RUN set -i "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-backports main restricted universe multiverse" /etc/apt/sources.list
+RUN sed -i 's#deb http://archive.ubuntu.com/ubuntu/ bionic main#deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse#g' /etc/apt/sources.list
+
+
+#RUN sed -i "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse" /etc/apt/sources.list
+#RUN set -i "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse" /etc/apt/sources.list
+#RUN set -i "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-backports main restricted universe multiverse" /etc/apt/sources.list
 
 
 
