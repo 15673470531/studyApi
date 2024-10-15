@@ -12,6 +12,9 @@ FROM php:8.1-fpm
 # 创建空的 sources.list 文件
 #RUN touch /etc/apt/sources.list
 
+# 华为云 Huawei Cloud
+RUN sed -i 's@deb.debian.org@repo.huaweicloud.com@g' /etc/apt/sources.list.d/debian.sources
+
 #清华源
 #RUN sed -i 's#deb http://archive.ubuntu.com/ubuntu/ bionic main#deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse#g' /etc/apt/sources.list
 
@@ -38,18 +41,18 @@ FROM php:8.1-fpm
 
 
 # 安装所需的依赖包和扩展
-#RUN apt-get update && apt-get install -y \
-#        git \
-#        curl \
-#        libpng-dev \
-#        libonig-dev \
-#        libxml2-dev \
-#        zip \
-#        unzip \
-#        vim \
-#        bash \
-#        iputils-ping \
-#    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
+RUN apt-get update && apt-get install -y \
+        git \
+        curl \
+        libpng-dev \
+        libonig-dev \
+        libxml2-dev \
+        zip \
+        unzip \
+        vim \
+        bash \
+        iputils-ping \
+    && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 #RUN apt-get -o Acquire::http::Timeout=5 -o Acquire::Retries=3 update && apt-get install -y && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 #RUN apt-get update && apt-get install -y && docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
