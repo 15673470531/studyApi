@@ -22,7 +22,7 @@ services:
             - wordpress_mynetwork
 
 networks:
-    wordpress_mynetwork:
+    wordpressadmin_mynetwork:
         external: true
 volumes:
     dbdata:
