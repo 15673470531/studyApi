@@ -22,7 +22,7 @@ class UserService extends BaseService {
             $tokenString = base64_decode($tokenString);
             list($sessionKey, $openid, $sign) = explode('.', $tokenString);
             $user = $this->loginUserRep->findUserByOpenid($openid);
-            $userid = $user['id'];
+            $userid = $user['id'] ?? 0;
         }
         return $userid;
     }

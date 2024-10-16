@@ -24,6 +24,7 @@ class LoginUserRepository extends BaseRepository {
     }
 
     public function findUserByOpenid(string $openid): array {
-        return $this->loginUserMd->where('openid', $openid)->first()->toArray();
+        $user = $this->loginUserMd->where('openid', $openid)->first();
+        return $user ? $user->toArray() : [];
     }
 }
