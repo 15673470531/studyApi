@@ -7,7 +7,7 @@ services:
         volumes:
             - .:/var/www/html
         networks:
-            - wordpress_mynetwork
+            - wordpressadmin_mynetwork
 
     nginx:
         image: nginx:latest
@@ -19,7 +19,7 @@ services:
         depends_on:
             - app
         networks:
-            - wordpress_mynetwork
+            - wordpressadmin_mynetwork
 
 networks:
     wordpressadmin_mynetwork:
