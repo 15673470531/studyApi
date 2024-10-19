@@ -1,0 +1,27 @@
+version: '3'
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/var/www/html
+        networks:
+            - wordpressadmin_mynetwork
+
+    nginx:
+        image: nginx:latest
+        ports:
+            - "8081:80"
+        volumes:
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./public:/var/www/html/public
+        depends_on:
+            - app
+        networks:
+            - wordpressadmin_mynetwork
+networks:
+    wordpressadmin_mynetwork:
+        external: true
+volumes:
+    dbdata:
