@@ -30,7 +30,7 @@ services:
             MYSQL_PASSWORD: cFzMv0Ha^&EIz&g6Va
             MYSQL_ROOT_PASSWORD: cFzMv0Ha^&EIz&g6Va
         ports:
-            - "3306:3306"
+            - "3307:3306"
         volumes:
             - ./mysql:/var/lib/mysql
             - ./my.cnf:/etc/mysql/my.cnf
