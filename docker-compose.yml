@@ -9,8 +9,9 @@ services:
         networks:
             - mynetwork
 
+#nginx version: nginx/1.27.2
     nginx:
-        image: nginx:latest
+        image: nginx:1.27.2
         ports:
             - "8081:80"
         volumes:
@@ -29,7 +30,7 @@ services:
             MYSQL_PASSWORD: cFzMv0Ha^&EIz&g6Va
             MYSQL_ROOT_PASSWORD: cFzMv0Ha^&EIz&g6Va
         ports:
-            - "3307:3306"
+            - "3306:3306"
         volumes:
             - ./mysql:/var/lib/mysql
             - ./my.cnf:/etc/mysql/my.cnf
