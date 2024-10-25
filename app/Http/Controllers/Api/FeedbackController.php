@@ -16,7 +16,7 @@ class FeedbackController extends BaseController {
 
     public function submit(Request $request): bool|string {
         $content = strval($request->input('content'));
-        $userid = intval($request->getUserId());
+        $userid = intval($request->get('uid'));
         return $this->response($this->feedbackService->submit($userid, $content));
     }
 }
