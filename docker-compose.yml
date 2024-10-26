@@ -26,7 +26,7 @@ services:
         image: mysql:8.0
         environment:
             MYSQL_DATABASE: wordpress
-            MYSQL_USER: kaixinjiuhao
+            MYSQL_USER: root
             MYSQL_PASSWORD: cFzMv0Ha^&EIz&g6Va
             MYSQL_ROOT_PASSWORD: cFzMv0Ha^&EIz&g6Va
         ports:
