@@ -39,8 +39,11 @@ class TermService extends BaseService {
             $lists = [];
             $parentTermIds = array_column($parentTermList, 'term_id');
             foreach ($parentTermIds as $parentTermId) {
-                $list['title'] = $termIdNameMap[$parentTermId] ?? [];
                 $childItems    = $childGroupList[$parentTermId] ?? [];
+                if (empty($childItems)){
+                    continue;
+                }
+                $list['title'] = $termIdNameMap[$parentTermId] ?? [];
                 $items         = [];
                 foreach ($childItems as $childItem) {
                     $item = $termIdMap[$childItem['term_id']] ?? [];
