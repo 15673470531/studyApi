@@ -43,7 +43,10 @@ class TermService extends BaseService {
                 $childItems    = $childGroupList[$parentTermId] ?? [];
                 $items         = [];
                 foreach ($childItems as $childItem) {
-                    $item = $termIdMap[$childItem['term_id']];
+                    $item = $termIdMap[$childItem['term_id']] ?? [];
+                    if (empty($item)){
+                        continue;
+                    }
 
                     //todo 增加图片地址和题目数量
                     $item['image'] = '/static/img/html.jpeg';
