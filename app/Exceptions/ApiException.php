@@ -20,7 +20,7 @@ class ApiException extends Exception {
     }
 
     public static function getRealErrorMsg(Throwable $e): string {
-        return sprintf('%s-%s', '系统抛异常', $e->getMessage());
+        return sprintf('%s-%s-line:%s', '系统抛异常', $e->getMessage(), $e->getLine());
     }
 }
 
