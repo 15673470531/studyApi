@@ -57,6 +57,9 @@ class TermService extends BaseService {
 
                     $items[] = $item;
                 }
+                if (empty($items)){
+                    continue;
+                }
                 $list['items'] = $items;
                 $lists[]       = $list;
             }
